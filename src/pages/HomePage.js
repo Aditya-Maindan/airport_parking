@@ -3,6 +3,7 @@ import Header from "./Header";
 import SearchForm from "./SearchForm";
 
 function HomePage() {
+    
   return (
     <div className="App">
           <div id="app" className="generic">
