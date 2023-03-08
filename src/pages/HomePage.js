@@ -22,7 +22,7 @@ function HomePage() {
                         </div>
                         <section id="hero"
                             style={{ 
-                              backgroundImage: `url(${process.env.PUBLIC_URL}/assets/generic_landing.jpg)`,
+                              backgroundImage: `url(${process.env.PUBLIC_URL}/src/pages/generic_landing.jpg)`,
                               minHeight: '500px'
                             }}>
                             <div className="hero-backdrop"></div>
