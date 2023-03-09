@@ -28,6 +28,10 @@
   color: #61dafb;
 }
 
+#hero {
+  background-image: url("./pages/assets/generic_landing.jpg");
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

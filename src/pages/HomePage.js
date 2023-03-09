@@ -1,6 +1,7 @@
 import Footer from "./Footer";
 import Header from "./Header";
 import SearchForm from "./SearchForm";
+import BgImage from "../pages/assets/generic_landing.jpg"
 
 function HomePage() {
     
@@ -9,7 +10,7 @@ function HomePage() {
           <div id="app" className="generic">
         <div>
             <app-header>
-                <Header/>
+                {/* <Header/> */}
             </app-header>
             <div className="content">
                 <us-page-home inline-template>
@@ -21,8 +22,7 @@ function HomePage() {
                             </div>
                         </div>
                         <section id="hero"
-                            style={{ 
-                              backgroundImage: `url(${process.env.PUBLIC_URL}/src/pages/generic_landing.jpg)`,
+                            style={{
                               minHeight: '500px'
                             }}>
                             <div className="hero-backdrop"></div>
