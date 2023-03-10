@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import moment from "moment";
+import axios from "axios";
 const SearchForm = () =>{
-        
-        const [departureAirport,setDepartureAirport] = useState("");
-        const [checkin,setCheckin] = useState('');
-        const [checkout,setCheckout] = useState('');
+        const today=moment().format('YYYY-MM-DD').toString();
+        const tomrrow = moment().add(1,'days').format('YYYY-MM-DD').toString();
+        const [departureAirport,setDepartureAirport] = useState("Dehli");
+        const [checkin,setCheckin] = useState(today);
+        const [checkout,setCheckout] = useState(tomrrow);
         const [errors,seterrors] =useState( {
             departureAirport:false,
             checkin:false,
@@ -72,6 +74,17 @@ const SearchForm = () =>{
         }
             
         }
+        const [records,setRecords]=useState([]);
+        const [loading,setloading] = useState(false);
+        const fectdata =async()=>{
+            setloading(true)
+            const{data}=await axios.get('http://43.205.1.85:9009/v1/airports');
+            setloading(false);
+            setRecords(data.results);
+        }
+        useEffect(()=>{
+            fectdata()
+        },[])
     return(
         <div>
             <form action="/results.html" method="post" autoComplete="off" noValidate="">
@@ -85,17 +98,41 @@ const SearchForm = () =>{
                                                     {(errors.departureAirport?<div><br/><div  style={{border:1,backgroundColor:"#da70d6"}}><h4><em>Invalid Departure Airport</em></h4></div></div>:null)}
                                                 </div> <i
                                                     className="fas fa-map-marker-alt input-icon"></i>
+                                                    <div style={{backgroundColor:'GrayText'}}>
+                                                    <ul>
+                                                     {records.map((record,index)=>{
+                                                           const isEven = index%2;
+                                                           return(
+                                                                <li key={index} style={{backgroundColor:isEven?'black':'white',color: isEven ? 'white' : 'black'}}>
+                                                             {record.name}
+                                                                </li>
+                                                                 );
+                                                          })}
+                                                    </ul>
+                                                    </div>
                                             </label>
                                             <div className="col p-0 row m-0 mb-2 dates"><label
                                                     className="col-sm-6 p-0 pr-sm-3 date_input">
                                                     <div className="heading mb-1">Parking Check-In</div>
                                                     <div className="placeholder">
-                                                        <input name="checkin" type="date" onChange={checkinHandler} placeholder="Parking Check-Out" className="placeholder placeholder-airport" style={{width:'100%'}}/>
+                                                        <input name="checkin" 
+                                                        type="date"
+                                                         onChange={checkinHandler} 
+                                                         placeholder="Parking Check-Out"
+                                                         value={checkin}
+                                                          className="placeholder placeholder-airport"
+                                                           style={{width:'100%'}}/>
                                                         {(errors.checkin?<div><br/><div  style={{border:1,backgroundColor:"#da70d6"}}><h4><em>Invalid check-in date</em></h4></div></div>:null)}
                                                     </div> 
                                                 </label> <label className="col-sm-6 p-0 pl-sm-0 date_input">
                                                     <div className="heading mb-1">Parking Check-Out</div>
-                                                        <input name="Check-Out" type="date" onChange={checkoutHandler} placeholder="Parking Check-Out" className="placeholder placeholder-airport" style={{width:"100%"}}/>
+                                                        <input name="Check-Out"
+                                                         type="date"
+                                                          onChange={checkoutHandler} 
+                                                          placeholder="Parking Check-Out" 
+                                                          value={checkout}
+                                                          className="placeholder placeholder-airport" 
+                                                          style={{width:"100%"}}/>
                                                         {(errors.checkout?<div><br/><div  style={{border:1,backgroundColor:"#da70d6"}}><h4><em>Invalid check-out date</em></h4></div></div>:null)}
                                                 </label></div>
                                             <div className="col-12 col-xl-2 p-0 pl-xl-3 my-3 my-xl-0">
