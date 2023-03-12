@@ -1,7 +1,5 @@
-import Footer from "./Footer";
-import Header from "./Header";
+
 import SearchForm from "./SearchForm";
-import BgImage from "../pages/assets/generic_landing.jpg"
 
 function HomePage() {
     
@@ -9,9 +7,7 @@ function HomePage() {
     <div className="App">
           <div id="app" className="generic">
         <div>
-            <app-header>
-                {/* <Header/> */}
-            </app-header>
+            
             <div className="content">
                 <us-page-home inline-template>
                     <section id="home_page">
@@ -22,7 +18,8 @@ function HomePage() {
                             </div>
                         </div>
                         <section id="hero"
-                            style={{
+                            style={{ 
+                              backgroundImage: `url(${process.env.PUBLIC_URL}/assets/generic_landing.jpg)`,
                               minHeight: '500px'
                             }}>
                             <div className="hero-backdrop"></div>
@@ -93,7 +90,7 @@ function HomePage() {
                     </section>
                 </us-page-home>
             </div>
-            <Footer/>
+            
         </div>
     </div>
 

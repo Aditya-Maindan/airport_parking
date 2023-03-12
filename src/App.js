@@ -1,21 +1,22 @@
-import React from 'react';
-import './App.css';
-import HomePage from './pages/HomePage';
+
 import { BrowserRouter,Routes,Route } from 'react-router-dom';
 import Layout from './pages/Layout';
+import HomePage from './pages/HomePage';
 import Login from './pages/Login';
-
-function App() {
+import AirportAvailability from './pages/AirportAvailability';
+ const App = () =>{
   return (
-    <BrowserRouter >
-    <Routes>
-    <Route path="/" element={<Layout />}>
-      <Route index element={<HomePage />} />
-      <Route path="login" element={<Login />} />
-      <Route path="*" element={<HomePage />} />
-    </Route>
-  </Routes>
-  </BrowserRouter >
+   <BrowserRouter>
+   <Routes>
+   <Route path="/" element={<Layout/>}>
+   <Route path="/" index element={<HomePage/>}/>
+   <Route path="/login" element={<Login/>}/>
+   <Route path="*" element={<HomePage/>}/>
+   <Route path="results" element={<AirportAvailability/>} />
+   
+   </Route>
+   </Routes>
+   </BrowserRouter>
   );
 }
 
