@@ -1,4 +1,3 @@
-
 import SearchForm from "./SearchForm";
 
 function HomePage() {

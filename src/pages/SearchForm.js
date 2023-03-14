@@ -139,28 +139,7 @@ const SearchForm = () => {
    
     return (
         <section>
-        <div className="searchbox landing">
-          <div className="row tabs">
-            <div className="tab">
-              <div className="heading">Most Convenient</div>
-              <div className="button">
-                <div className="icon">
-                  <i className="fas fa-car"></i>
-                </div>
-                Airport Parking Only
-              </div>
-            </div>
-            <div className="tab">
-              <div className="heading">Best Value</div>
-              <div className="button">
-                <div className="icon">
-                  <i className="fas fa-bed"></i> +{" "}
-                  <i className="fas fa-car"></i>
-                </div>
-                Hotel &amp; Parking Package
-              </div>
-            </div>
-          </div>
+        
           <form
             action="/results.html"
             method="post"
@@ -250,7 +229,7 @@ const SearchForm = () => {
               </div>
             </div>
           </form>
-        </div>
+        
       
     </section>
   );
