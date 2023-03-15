@@ -151,7 +151,7 @@ const AirportAvailability = () => {
     </div>
 
 
-    <section id="footer">
+    {/* <section id="footer">
         <div className="container">
 
             <div className="row">
@@ -222,7 +222,7 @@ const AirportAvailability = () => {
                 MAG USA, 100 North Lasalle Street, Chicago, IL, 60602
             </div>
         </div>
-    </section>
+    </section> */}
 </div>
 </div>
 )};
