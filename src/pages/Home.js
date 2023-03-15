@@ -75,7 +75,7 @@ const SearchForm = () => {
         {
             if (departureAirport && parkingCheckIn && parkingCheckOut) {
                 navigate(
-                  `/results?departureAirport=${departureAirport}&parkingCheckIn=${parkingCheckIn}&parkingCheckOut=${parkingCheckOut}`
+                  window.location.href = `/results?departureAirport=${departureAirport}&checkin=${checkin}&checkout=${checkout}`
                 );
             alert("Form Submitted")
         }
@@ -143,8 +143,8 @@ const SearchForm = () => {
           <form
             action="/results.html"
             method="post"
-            autocomplete="off"
-            novalidate=""
+            autoComplete="off"
+            noValidate=""
           >
             <div className="options row m-0">
               <label className="col-12 col-xl-3 p-0 mr-xl-3 mb-2">
@@ -234,8 +234,6 @@ const SearchForm = () => {
     </section>
   );
 };
-
-
 
 function HomePage() {
     
