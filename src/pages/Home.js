@@ -75,7 +75,7 @@ const SearchForm = () => {
         {
             if (departureAirport && parkingCheckIn && parkingCheckOut) {
                 navigate(
-                  window.location.href = `/results?departureAirport=${departureAirport}&checkin=${checkin}&checkout=${checkout}`
+                  window.location.href = `/results?departureAirport=${departureAirport}&parkingCheckIn=${parkingCheckIn}&parkingCheckOut=${parkingCheckOut}`
                 );
             alert("Form Submitted")
         }
@@ -157,7 +157,7 @@ const SearchForm = () => {
                     onChange={departureAirportHandler}
                     value={departureAirport}
                   />
-                  {records.map((record, index) => {
+                  {/* {records.map((record, index) => {
                     const isEven = index % 2;
                     return (
                       <li
@@ -167,7 +167,7 @@ const SearchForm = () => {
                         {record.name}
                       </li>
                     );
-                  })} 
+                  })}  */}
                   {Loading ? <h1>Loading</h1> : null}
                   <AirportSuggestions
                     airports={filteredAirports}
