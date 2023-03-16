@@ -67,7 +67,7 @@ const SearchForm = () => {
         
        
     if(moment(parkingCheckIn)>moment(parkingCheckOut)){  
-            alert("Check out date is greater than check in date!!")
+            // alert("Check out date is greater than check in date!!")
             SetErrors((err)=>({...err,parkingCheckOut:true}))
         }
 
@@ -75,7 +75,7 @@ const SearchForm = () => {
         {
             if (departureAirport && parkingCheckIn && parkingCheckOut) {
                 
-                  window.location.href = `/results?departureAirport=${departureAirport}&parkingCheckIn=${parkingCheckIn}&parkingCheckOut=${parkingCheckOut}`
+                  // window.location.href = `/results?departureAirport=${departureAirport}&parkingCheckIn=${parkingCheckIn}&parkingCheckOut=${parkingCheckOut}`
                 
             alert("Form Submitted")
         }
@@ -195,7 +195,7 @@ const SearchForm = () => {
                       onChange={parkingCheckInHandler}
                     />
                     {errors && errors.parkingCheckIn ? (
-                      <h3>Invalid Parking Check-In</h3>
+                      <h3>Invalid checkin Date</h3>
                     ) : null}
                   </div>
                 </label>{" "}
@@ -211,7 +211,7 @@ const SearchForm = () => {
                     onChange={parkingCheckOutHandler}
                   />
                   {errors && errors.parkingCheckOut ? (
-                    <h3>Invalid Parking Check-Out</h3>
+                    <h3>Invalid checkout Date</h3>
                   ) : null}
                 </label>
               </div>
