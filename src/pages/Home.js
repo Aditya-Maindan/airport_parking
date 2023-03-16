@@ -10,7 +10,7 @@ const SearchForm = () => {
     const [airports, setAirports] = useState([]);
     const [filteredAirports, setFilteredAirports] = useState("");
   
-    const navigate = useNavigate();
+    
     const [records, setRecords] = useState([]);
     const [Loading, setLoading] = useState(true);
     const fetchData = async () => {
@@ -74,9 +74,9 @@ const SearchForm = () => {
         else
         {
             if (departureAirport && parkingCheckIn && parkingCheckOut) {
-                navigate(
+                
                   window.location.href = `/results?departureAirport=${departureAirport}&parkingCheckIn=${parkingCheckIn}&parkingCheckOut=${parkingCheckOut}`
-                );
+                
             alert("Form Submitted")
         }
         else{
